@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <Description>Driver update discovery via Windows Update and official manufacturer support links.</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Drively.Core\Drively.Core.csproj" />
+  </ItemGroup>
+</Project>

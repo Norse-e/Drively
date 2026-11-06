@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <Description>Driver backup (pnputil export) and validated restore.</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Drively.Core\Drively.Core.csproj" />
+    <ProjectReference Include="..\Drively.DriverInstallation\Drively.DriverInstallation.csproj" />
+  </ItemGroup>
+</Project>

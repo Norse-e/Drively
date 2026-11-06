@@ -1,0 +1,109 @@
+<UserControl x:Class="Drively.App.Views.SettingsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel MaxWidth="820" HorizontalAlignment="Left">
+            <TextBlock Text="Settings" Style="{StaticResource PageTitle}" />
+            <TextBlock Style="{StaticResource PageSubtitle}" Text="Only the essentials. Settings are stored locally on this PC." />
+
+            <Border Style="{StaticResource Card}" Margin="0,0,0,14">
+                <StackPanel>
+                    <TextBlock Text="Appearance" Style="{StaticResource SectionTitle}" />
+                    <RadioButton Content="Use Windows setting" GroupName="Theme" IsChecked="{Binding IsSystemTheme}" />
+                    <RadioButton Content="Light" GroupName="Theme" IsChecked="{Binding IsLightTheme}" />
+                    <RadioButton Content="Dark" GroupName="Theme" IsChecked="{Binding IsDarkTheme}" Margin="0" />
+                </StackPanel>
+            </Border>
+
+            <Border Style="{StaticResource Card}" Margin="0,0,0,14">
+                <StackPanel>
+                    <TextBlock Text="Language" Style="{StaticResource SectionTitle}" />
+                    <TextBlock Text="English" />
+                    <TextBlock Style="{StaticResource Muted}" FontSize="12" Margin="0,4,0,0"
+                               Text="This release is available in English. Translations are welcome — see CONTRIBUTING.md." />
+                </StackPanel>
+            </Border>
+
+            <Border Style="{StaticResource Card}" Margin="0,0,0,14">
+                <StackPanel>
+                    <TextBlock Text="Folders" Style="{StaticResource SectionTitle}" />
+                    <TextBlock Text="Download directory" Style="{StaticResource FieldLabel}" />
+                    <DockPanel Margin="0,0,0,4">
+                        <Button DockPanel.Dock="Right" Content="Change…" Margin="8,0,0,0" Command="{Binding ChangeDownloadDirectoryCommand}" />
+                        <TextBox Text="{Binding DownloadDirectory, Mode=OneWay}" IsReadOnly="True" />
+                    </DockPanel>
+                    <TextBlock Style="{StaticResource Muted}" FontSize="12" Margin="0,0,0,12"
+                               Text="Default location for exported driver inventories. Driver packages from Windows Update are downloaded and verified by Windows in its own update cache." />
+                    <TextBlock Text="Backup directory" Style="{StaticResource FieldLabel}" />
+                    <DockPanel>
+                        <Button DockPanel.Dock="Right" Content="Change…" Margin="8,0,0,0" Command="{Binding ChangeBackupDirectoryCommand}" />
+                        <TextBox Text="{Binding BackupDirectory, Mode=OneWay}" IsReadOnly="True" />
+                    </DockPanel>
+                </StackPanel>
+            </Border>
+
+            <Border Style="{StaticResource Card}" Margin="0,0,0,14">
+                <StackPanel>
+                    <TextBlock Text="Updates" Style="{StaticResource SectionTitle}" />
+                    <CheckBox Content="Check for driver updates when DRIVELY starts" IsChecked="{Binding CheckForUpdatesOnStartup}" />
+                    <TextBlock Style="{StaticResource Muted}" FontSize="12" Margin="0,6,0,0"
+                               Text="Off by default. When on, DRIVELY contacts Windows Update each time you open it. Updates are never installed without your confirmation. DRIVELY has no background service and shows no notifications while closed." />
+                </StackPanel>
+            </Border>
+
+            <Border Style="{StaticResource Card}" Margin="0,0,0,14">
+                <StackPanel>
+                    <TextBlock Text="Privacy &amp; network" Style="{StaticResource SectionTitle}" />
+                    <TextBlock TextWrapping="Wrap" Margin="0,0,0,8"
+                               Text="No accounts, no analytics, no tracking, no advertising. Hardware information, history and logs stay on this PC. External sources contacted:" />
+                    <ItemsControl ItemsSource="{Binding NetworkSources}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding StringFormat='• {0}'}" TextWrapping="Wrap" Margin="0,0,0,4" />
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                    <TextBlock TextWrapping="Wrap" Margin="0,4,0,0"
+                               Text="• Manufacturer support pages open in your web browser only when you click a support link." />
+                </StackPanel>
+            </Border>
+
+            <Border Style="{StaticResource Card}" Margin="0,0,0,14">
+                <StackPanel>
+                    <TextBlock Text="Data" Style="{StaticResource SectionTitle}" />
+                    <TextBlock Style="{StaticResource Muted}" Margin="0,0,0,10">
+                        <Run Text="Local data folder: " /><Run Text="{Binding DataLocation, Mode=OneWay}" />
+                    </TextBlock>
+                    <WrapPanel>
+                        <Button Content="Clear application history" Style="{StaticResource DangerButton}" Margin="0,0,8,0" Command="{Binding ClearHistoryCommand}" />
+                        <Button Content="Open log folder" Margin="0,0,8,0" Command="{Binding OpenLogFolderCommand}" />
+                        <Button Content="Open data folder" Command="{Binding OpenDataFolderCommand}" />
+                    </WrapPanel>
+                </StackPanel>
+            </Border>
+
+            <Border Style="{StaticResource Card}" Margin="0,0,0,14">
+                <StackPanel>
+                    <TextBlock Text="About" Style="{StaticResource SectionTitle}" />
+                    <TextBlock>
+                        <Run Text="DRIVELY version " /><Run Text="{Binding Version, Mode=OneWay}" />
+                    </TextBlock>
+                    <TextBlock Style="{StaticResource Muted}" Margin="0,4,0,12"
+                               Text="Free and open-source software, released under the MIT License. Copyright (c) 2026 DRIVELY contributors." />
+                    <TextBlock Text="Open-source licenses" FontWeight="SemiBold" Margin="0,0,0,6" />
+                    <TextBlock Style="{StaticResource Muted}" FontSize="12" LineHeight="20">
+                        CommunityToolkit.Mvvm — MIT License (.NET Foundation)<LineBreak />
+                        Microsoft.Extensions.DependencyInjection — MIT License (.NET Foundation)<LineBreak />
+                        Microsoft.Data.Sqlite — MIT License (.NET Foundation)<LineBreak />
+                        SQLitePCLRaw — Apache License 2.0 (Eric Sink)<LineBreak />
+                        SQLite — Public domain<LineBreak />
+                        System.Management, System.Security.Cryptography.Pkcs — MIT License (.NET Foundation)<LineBreak />
+                        .NET runtime and WPF — MIT License (.NET Foundation)
+                    </TextBlock>
+                    <TextBlock Style="{StaticResource Muted}" FontSize="12" Margin="0,8,0,0"
+                               Text="Full license texts are in THIRD-PARTY-NOTICES.md, shipped with DRIVELY." />
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

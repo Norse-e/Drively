@@ -1,0 +1,6 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Description>Models, interfaces and platform-independent logic for DRIVELY.</Description>
+  </PropertyGroup>
+</Project>

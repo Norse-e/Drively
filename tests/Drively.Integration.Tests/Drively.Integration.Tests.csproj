@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Using Include="Xunit" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="xunit" />
+    <PackageReference Include="xunit.runner.visualstudio" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Drively.DriverDetection\Drively.DriverDetection.csproj" />
+    <ProjectReference Include="..\..\src\Drively.DriverUpdates\Drively.DriverUpdates.csproj" />
+    <ProjectReference Include="..\..\src\Drively.DriverInstallation\Drively.DriverInstallation.csproj" />
+    <ProjectReference Include="..\..\src\Drively.Backup\Drively.Backup.csproj" />
+    <ProjectReference Include="..\..\src\Drively.Data\Drively.Data.csproj" />
+  </ItemGroup>
+</Project>

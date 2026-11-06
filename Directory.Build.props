@@ -1,0 +1,19 @@
+<Project>
+  <PropertyGroup>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <Version>0.1.0</Version>
+    <Authors>DRIVELY contributors</Authors>
+    <Company>DRIVELY</Company>
+    <Product>DRIVELY</Product>
+    <Copyright>Copyright (c) 2026 DRIVELY contributors</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    <AnalysisLevel>latest-recommended</AnalysisLevel>
+    <NuGetAudit>true</NuGetAudit>
+    <NuGetAuditMode>all</NuGetAuditMode>
+    <NoWarn>$(NoWarn);CA1848;CA2254;CA1805;CA1822;CA1859;CA1305;CA1310;CA1307;CA1309;CA1862;CA1311;CA1304;CA1869;CA1510;CA1863;CA1716;CA1031</NoWarn>
+  </PropertyGroup>
+</Project>
